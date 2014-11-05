@@ -1,2 +1,21 @@
 #!/bin/bash
 #This is ReadMe for SubJet Analysis 
+
+
+class AliAnalysisTaskEmcalSubJet     the main class which used to find the subjet by a given jet(seed jet).
+class AliAnalysisTaskEmcalSubJetUser the user task_class mainly used for further study about subjet.
+class AliSubJetContainer             used to descripe the SubJetContainer which may be use some addinational cuts such as Trimming and Purnning.
+class AliEmcalJet                    the new version of Jet due to consider the subjet, add the MotherIndex  and the SubJetIndex which used to link the seedjet and subjet.
+
+CFile AddTaskEmcalSubJetUser.C       the AddTaskFile use to configure the user Task(include the subJet Finder)
+CFile runEmcalSubJet.C               the ALICE_EMCAL_Jet Framework with subjet analysis code
+TXTFile files_mc_esd.txt             the local MC Event Input File  
+
+#how to run this code 
+
+1 install the ROOT/GEANT3/ALIROOT/FASTJET2
+2 put all this file in one dir
+3 replace the file(AliEmcalJet.cxx,AliEmcalJet.h) in $ALICE_ROOT/PWGJE/EMCALJetTasks/  and recompile the ALIROOT   => refresh the jet data structure
+4 set your new data dir in files_mc_esd.txt   => tell the Framework where to find the input event file
+4 run  airoot -l runEmcalSubJet.C             => run the  Framework 
+
